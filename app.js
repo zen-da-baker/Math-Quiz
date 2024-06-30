@@ -1,5 +1,5 @@
-import { easyRand, mediumRand, hardRand, veryHardRand } from './difficulties.js';
-import { correctRes, incorrectRes } from './responses.js';
+// import { easyRand, mediumRand, hardRand, veryHardRand } from './difficulties.js';
+// import { correctRes, incorrectRes } from './responses.js';
 
 const num1 = document.getElementById('num1');
 const num2 = document.getElementById('num2');
@@ -27,6 +27,42 @@ function reset() {
     response.innerHTML = '';
     input.value = '';
 }
+
+
+function correctRes(correct, incorrect) {
+    return `
+        <p>Correct!</p>
+        <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
+        <p>Correct: ${correct}</p>
+        <p>Incorrect: ${incorrect}</p>
+    `;
+}
+
+function incorrectRes (correct, incorrect) { 
+    return `
+        <p>Incorrect</p>
+        <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
+        <p>Correct: ${correct}</p>
+        <p>Incorrect: ${incorrect}</p>
+    `;
+}
+
+function easyRand() {
+    return Math.floor(Math.random() * 10);
+}
+
+function mediumRand() {
+    return Math.floor(Math.random() * 100);
+}
+
+function hardRand () {
+    return Math.floor(Math.random() * 1000);
+}
+
+function veryHardRand () {
+    return Math.floor(Math.random() * 10000);
+}
+
 
 function scaleDifficulty() {
     if (correct <= 5) {
@@ -77,9 +113,6 @@ function main() {
     console.log("Correct: " + correct);
     console.log("Incorrect: " + incorrect);
 }
-
-
-
 
 
 
