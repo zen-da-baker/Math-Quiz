@@ -13,13 +13,13 @@
         <main>
             <h2>Questions</h2>
 
-            <h3>Question 1</h3>
+            <h3>Question <span id="questionNum"></span></h3>
             <form onsubmit="capture()">
-                <label for="input">
+                <label for="input" action="app.js" method="post">
                     <span id="num1">num1</span><span> + </span><span id="num2">num2</span> <span> = </span>
                 </label>
 
-                <input type="number" id="input" name="input"/>
+                <input type="number" id="input" name="input" min="1" max="200"/>
                 <input type="submit" value="Submit"/>
             </form>
 
