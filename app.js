@@ -1,9 +1,12 @@
-let num1 = document.getElementById('num1');
-let num2 = document.getElementById('num2');
-let input = document.getElementById('input');
-let response = document.getElementById('response');
-let questionNum = document.getElementById('questionNum');
-let submit = document.getElementById('submit');
+import { easyRand, mediumRand, hardRand, veryHardRand } from './difficulties.js';
+import { correctRes, incorrectRes } from './responses.js';
+
+const num1 = document.getElementById('num1');
+const num2 = document.getElementById('num2');
+const input = document.getElementById('input');
+const response = document.getElementById('response');
+const questionNum = document.getElementById('questionNum');
+const submit = document.getElementById('submit');
 
 function inputTest() {
     console.log(input.value);
@@ -17,25 +20,8 @@ questionNum.innerHTML = question;
 let correct = 0;
 let incorrect = 0;
 
-
 let num1Value = 0;
 let num2Value = 0;
-
-function easyRand() {
-    return Math.floor(Math.random() * 10);
-}
-
-function mediumRand() {
-    return Math.floor(Math.random() * 100);
-}
-
-function hardRand () {
-    return Math.floor(Math.random() * 1000);
-}
-
-function veryHardRand () {
-    return Math.floor(Math.random() * 10000);
-}
 
 function reset() {
     response.innerHTML = '';
@@ -61,29 +47,7 @@ function scaleDifficulty() {
     }
 }
 
-function correctRes(correct, incorrect) {
-    return `
-        <p>Correct!</p>
-        <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
-        <p>Correct: ${correct}</p>
-        <p>Incorrect: ${incorrect}</p>
-    `;
-}
-
-function incorrectRes (correct, incorrect) { 
-    return `
-        <p>Incorrect</p>
-        <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
-        <p>Correct: ${correct}</p>
-        <p>Incorrect: ${incorrect}</p>
-    `;
-}
-
 function capture() {
-
-    
-
-
     if (input.value == NaN) {
         input.value = parseInt(input.value);
     }
@@ -97,7 +61,6 @@ function capture() {
         response.innerHTML = incorrectRes(correct, incorrect);
         console.log('Incorrect!');
     }
-
 }
 
 function main() {
@@ -113,9 +76,6 @@ function main() {
 
     console.log("Correct: " + correct);
     console.log("Incorrect: " + incorrect);
-
-    
-    
 }
 
 
