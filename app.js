@@ -7,6 +7,7 @@ const input = document.getElementById('input');
 const response = document.getElementById('response');
 const questionNum = document.getElementById('questionNum');
 const submit = document.getElementById('submit');
+const card = document.getElementById('card');
 
 function inputTest() {
     console.log(input.value);
@@ -26,10 +27,13 @@ let num2Value = 0;
 function reset() {
     response.innerHTML = '';
     input.value = '';
+
+    card.style.height = '8rem';
 }
 
 
 function correctRes(correct, incorrect) {
+    card.style.height = '16rem';
     return `
         <p>Correct!</p>
         <button onclick="main(); reset()" class="btn">Would you like to play again?</button>

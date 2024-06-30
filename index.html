@@ -17,14 +17,22 @@
         </header>
 
         <main>
-            <h2>Question <span id="questionNum"></span></h2>
+            <section class="container">
 
-            <label for="input" action="app.js" method="post">
-                <span id="num1">num1</span><span> + </span><span id="num2">num2</span> <span> = </span>
-            </label>
+                <div class="card" id="card">
+                    <h2>Question <span id="questionNum"></span></h2>
 
-            <input type="number" id="input" name="input" min="1" max="200" class="input"/>
-            <button id="submit" onclick="capture()" class="input btn">Submit</button>
+                    <label for="input" action="app.js" method="post">
+                        <span id="num1">num1</span><span> + </span><span id="num2">num2</span> <span> = </span>
+                    </label>
+        
+                    <input type="number" id="input" name="input" min="1" max="200" class="input"/>
+                    <button id="submit" onclick="capture()" class="input btn">Submit</button>
+
+                    <div id="response"></div>
+                </div>
+            </section>
+            
 
         <!--
             <form onsubmit="capture()" id="form">
@@ -36,8 +44,6 @@
                 <input type="submit" value="Submit"/>
             </form>
         -->
-
-            <div id="response"></div>
         </main>
 
         <footer class="footer">
