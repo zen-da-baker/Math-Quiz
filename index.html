@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Math Quiz</title>
-        
+        <link rel="stylesheet" href="style.css"/>
     </head>
 
     <body onload="main()">
@@ -19,8 +19,8 @@
                 <span id="num1">num1</span><span> + </span><span id="num2">num2</span> <span> = </span>
             </label>
 
-            <input type="number" id="input" name="input" min="1" max="200"/>
-            <input type="submit" value="Submit" id="submit" onclick="capture()"/>
+            <input type="number" id="input" name="input" min="1" max="200" class="input"/>
+            <input type="submit" value="Submit" id="submit" onclick="capture()" class="input btn"/>
 
         <!--
             <form onsubmit="capture()" id="form">
