@@ -46,10 +46,10 @@ function scaleDifficulty() {
     if (correct <= 5) {
         num1Value = easyRand();
         num2Value = easyRand();
-    } else if (correct > 5 && correct < 10) {
+    } else if (correct > 5 && correct <= 10) {
         num1Value = mediumRand();
         num2Value = mediumRand();
-    } else if (correct > 10 && correct < 15) {
+    } else if (correct > 10 && correct <= 15) {
         num1Value = hardRand();
         num2Value = hardRand();
     } else if (correct > 15) {
@@ -64,7 +64,7 @@ function scaleDifficulty() {
 function correctRes(correct, incorrect) {
     return `
         <p>Correct!</p>
-        <button onclick="main(); reset()">Would you like to play again?</button>
+        <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
         <p>Correct: ${correct}</p>
         <p>Incorrect: ${incorrect}</p>
     `;
@@ -73,7 +73,7 @@ function correctRes(correct, incorrect) {
 function incorrectRes (correct, incorrect) { 
     return `
         <p>Incorrect</p>
-        <button onclick="main(); reset()">Would you like to play again?</button>
+        <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
         <p>Correct: ${correct}</p>
         <p>Incorrect: ${incorrect}</p>
     `;
