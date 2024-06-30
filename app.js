@@ -33,21 +33,23 @@ function reset() {
 
 
 function correctRes(correct, incorrect) {
-    card.style.height = '16rem';
+    card.style.height = '18rem';
     return `
-        <p>Correct!</p>
+        <h3 class="text answer correct">Correct!</h3>
         <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
-        <p>Correct: ${correct}</p>
-        <p>Incorrect: ${incorrect}</p>
+        <p class="text">Correct: ${correct}</p>
+        <p class="text">Incorrect: ${incorrect}</p>
     `;
 }
 
 function incorrectRes (correct, incorrect) { 
+    card.style.height = '21rem';
     return `
-        <p>Incorrect</p>
+        <h3 class="text answer incorrect">Incorrect</h3>
+        <p class="text answer incorrect">The correct answer is: ${num1Value + num2Value}</p>
         <button onclick="main(); reset()" class="btn">Would you like to play again?</button>
-        <p>Correct: ${correct}</p>
-        <p>Incorrect: ${incorrect}</p>
+        <p class="text">Correct: ${correct}</p>
+        <p class="text">Incorrect: ${incorrect}</p>
     `;
 }
 

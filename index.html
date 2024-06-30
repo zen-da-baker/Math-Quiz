@@ -17,21 +17,36 @@
         </header>
 
         <main>
-            <section class="container">
-
-                <div class="card" id="card">
-                    <h2>Question <span id="questionNum"></span></h2>
-
-                    <label for="input" action="app.js" method="post">
-                        <span id="num1">num1</span><span> + </span><span id="num2">num2</span> <span> = </span>
-                    </label>
-        
-                    <input type="number" id="input" name="input" min="1" max="200" class="input"/>
-                    <button id="submit" onclick="capture()" class="input btn">Submit</button>
-
-                    <div id="response"></div>
-                </div>
-            </section>
+            <div class="container">
+                <section class="container">
+                    <article class="instructions-card">
+                        <h2 class="text">Instructions</h2>
+                    
+                        <ul class="text">
+                            <li>Use mental math to solve each addition problem shown below.</li>
+                            <li>The more answers you get correct, the higher your score will be.</li>
+                            <li>Complete problems correctly to reach higher difficulties.</li>
+                        </ul>
+                    </article>
+                </section>
+                
+                <section class="container height50">
+    
+                    <div class="card" id="card">
+                        <h2 class="text">Question <span id="questionNum"></span></h2>
+    
+                        <label for="input" action="app.js" method="post" class="text">
+                            <span id="num1">num1</span><span> + </span><span id="num2">num2</span> <span> = </span>
+                        </label>
+            
+                        <input type="number" id="input" name="input" min="1" max="200" class="input text"/>
+                        <button id="submit" onclick="capture()" class="input btn">Submit</button>
+    
+                        <div id="response"></div>
+                    </div>
+                </section>
+            </div>
+            
             
 
         <!--
