@@ -1,34 +1,67 @@
-// import { easyRand, mediumRand, hardRand, veryHardRand } from './difficulties.js';
-// import { correctRes, incorrectRes } from './responses.js';
+async function serviceWorkerRegistration() {
+
+    const registration = await navigator.serviceWorker.register( "./serviceWorker.js", { scope: "/" } );
+
+    console.log( registration );
+
+    if ( registration.installing ) {
+
+        console.log( "Service worker is installing." );
+
+    } else if ( registration.waiting ) {
+
+        console.log( "Service worker is waiting." );
+
+    } else if ( registration.active ) {
+
+        console.log( "Service worker is active." );
+    
+    }
+
+    console.log( registration );
+
+}
+
+serviceWorkerRegistration();
 
 const num1 = document.getElementById('num1');
 const num2 = document.getElementById('num2');
-const input = document.getElementById('input');
+const input = document.querySelector('input');
 const response = document.getElementById('response');
 const questionNum = document.getElementById('questionNum');
 const submit = document.getElementById('submit');
 const card = document.getElementById('card');
 
 function inputTest() {
-    console.log(input.value);
+
+    if ( input !== null ) {
+
+        console.log( input.value );
+
+    }
+
 } 
 
-document.getElementById('input').addEventListener('change', inputTest);
+document.getElementById('input').addEventListener( 'change', inputTest );
 
-let question = 1;
-questionNum.innerHTML = question;
+let question: number = 1;
 
-let correct = 0;
-let incorrect = 0;
+questionNum.textContent = question.toString();
 
-let num1Value = 0;
-let num2Value = 0;
+let correct: number = 0;
+let incorrect: number = 0;
+
+let num1Value: number = 0;
+let num2Value: number = 0;
 
 function reset() {
-    response.innerHTML = '';
+
+    response.textContent = '';
+
     input.value = '';
 
     card.style.height = '8rem';
+
 }
 
 
@@ -43,7 +76,9 @@ function correctRes(correct, incorrect) {
 }
 
 function incorrectRes (correct, incorrect) { 
+
     card.style.height = '21rem';
+
     return `
         <h3 class="text answer incorrect">Incorrect</h3>
         <p class="text answer incorrect">The correct answer is: ${num1Value + num2Value}</p>
@@ -90,11 +125,9 @@ function scaleDifficulty() {
 }
 
 function capture() {
-    if (input.value == NaN) {
-        input.value = parseInt(input.value);
-    }
+    
 
-    if (input.value == num1Value + num2Value) {
+    if (input.value == (num1Value + num2Value).toString() ) {
         correct++;
         response.innerHTML = correctRes(correct, incorrect);
         console.log('Correct!');
@@ -105,20 +138,26 @@ function capture() {
     }
 }
 
+submit.onclick = capture;
+
 function main() {
+
     scaleDifficulty();
 
     console.log("Num 1: " + num1Value);
     console.log("Num 2: " + num2Value);
 
-    num1.innerHTML = num1Value;
-    num2.innerHTML = num2Value;
+    num1.innerHTML = num1Value.toString();
+    num2.innerHTML = num2Value.toString();
 
-    questionNum.innerHTML = question++;
+    let newQuestionNumber = question++;
+
+    questionNum.innerHTML = newQuestionNumber.toString();
 
     console.log("Correct: " + correct);
     console.log("Incorrect: " + incorrect);
+
 }
 
-
+main();
 
