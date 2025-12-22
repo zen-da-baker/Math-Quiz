@@ -1,6 +1,6 @@
 async function serviceWorkerRegistration() {
 
-    const registration = await navigator.serviceWorker.register( "./serviceWorker.js", { scope: "/" } );
+    const registration = await navigator.serviceWorker.register( "/build/serviceWorker.js", { scope: "/build/" } );
 
     console.log( registration );
 
