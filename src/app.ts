@@ -161,3 +161,12 @@ function main() {
 
 main();
 
+async function getAppFile() {
+
+    const response = await fetch("/build/app.js");
+
+    console.log( response );
+
+}
+
+setTimeout( getAppFile, 3000 );
