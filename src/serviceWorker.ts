@@ -1,5 +1,6 @@
 // List of all file urls for this web application
 let knownFilePaths: Array<string> = [
+    self.location.origin + "/",
     self.location.origin + "/build/app.js",
     self.location.origin + "/build/serviceWorker.js",
     self.location.origin + "/styles/style.css",
@@ -27,26 +28,33 @@ async function networkRequest( event: any ) {
 
     console.log( event );
 
-    if ( event.request.method === "GET" ) {
+    let cacheStorage = self.caches;
 
-        let cacheStorage = self.caches;
+    let cache = await cacheStorage.open( cacheName );
 
-        let cache = await cacheStorage.open( cacheName );
+    let matchObject = await cache.match( event.request );
 
-        let matchObject = await cache.match( event.request );
+    console.log( matchObject );
 
-        console.log( matchObject );
+    event.respondWith(
 
-        event.respondWith(
+        matchObject
 
-            matchObject
-
-        )
-
-    }
+    )
 
 }
 
+addEventListener( "install", cacheAllFiles );
+
 cacheAllFiles();
 
-self.addEventListener( "fetch", networkRequest );
+function addActiveListeners( event: any ) {
+
+    console.log( event );
+
+}
+
+addEventListener( "fetch", networkRequest );
+
+self.addEventListener( "activate", addActiveListeners );
+

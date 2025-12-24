@@ -2,8 +2,6 @@ async function serviceWorkerRegistration() {
 
     const registration = await navigator.serviceWorker.register( "/build/serviceWorker.js", { scope: "/build/" } );
 
-    console.log( registration );
-
     if ( registration.installing ) {
 
         console.log( "Service worker is installing." );
@@ -17,8 +15,6 @@ async function serviceWorkerRegistration() {
         console.log( "Service worker is active." );
     
     }
-
-    console.log( registration );
 
 }
 

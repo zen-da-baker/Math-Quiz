@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "typescript": "^5.9.3"
+  },
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/build/server.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node /build/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "module": "es2024"
+}
