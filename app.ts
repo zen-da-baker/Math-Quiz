@@ -1,25 +1,3 @@
-async function serviceWorkerRegistration() {
-
-    const registration = await navigator.serviceWorker.register( "/build/serviceWorker.js", { scope: "/build/" } );
-
-    if ( registration.installing ) {
-
-        console.log( "Service worker is installing." );
-
-    } else if ( registration.waiting ) {
-
-        console.log( "Service worker is waiting." );
-
-    } else if ( registration.active ) {
-
-        console.log( "Service worker is active." );
-    
-    }
-
-}
-
-serviceWorkerRegistration();
-
 const num1 = document.getElementById('num1');
 const num2 = document.getElementById('num2');
 const input = document.querySelector('input');
@@ -159,7 +137,7 @@ main();
 
 async function getAppFile() {
 
-    const response = await fetch("/build/app.js");
+    const response = await fetch("/app.js");
 
     console.log( response );
 
