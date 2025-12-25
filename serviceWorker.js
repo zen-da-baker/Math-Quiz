@@ -22,10 +22,21 @@ async function cacheAllFiles(event) {
 function networkRequest(event) {
     let { request } = event;
     let cacheStorage = self.caches;
-    event.respondWith(cacheStorage.open(cacheName).then((cache) => {
-        return cache.match(request).catch((err) => {
-            return fetch(request);
-        });
+    // Handle what is sent in response to the network request from the browser
+    event.respondWith(
+    // Perform the browser default fetch request first and detect if there is a connection error
+    fetch(request).catch((err) => {
+        console.log(err);
+        // If the method of the request is GET after an error is detected, respond with the cache
+        if (request.method === "GET") {
+            // Open the cache name and find a match with the request
+            return cacheStorage.open(cacheName).then((cache) => {
+                // Return the cached response
+                return cache.match(request).catch((err) => {
+                    console.log(err);
+                });
+            });
+        }
     }));
 }
 async function addActiveListeners(event) {
@@ -43,4 +54,3 @@ async function addActiveListeners(event) {
 self.addEventListener("install", cacheAllFiles);
 self.addEventListener("activate", addActiveListeners);
 self.addEventListener("fetch", networkRequest);
-setTimeout(() => fetch("https://api.bytesizedcrew.com").then((response) => console.log(response)), 3000);

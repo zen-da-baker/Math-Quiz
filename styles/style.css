@@ -82,11 +82,21 @@ h1, h2, h3, p, label, .btn, .text {
 }
 
 .header {
+
     padding: 1rem;
+    
     margin-bottom: 1rem;
 
     color: white;
+
     background-color: black;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-around;
+
 }
 
 .footer {

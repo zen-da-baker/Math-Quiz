@@ -1,4 +1,7 @@
 {
-    "name": "Math Quiz",
-    "description": "This is a math game quiz"
+    "name": "ByteSized Math by ByteSized Crew",
+    "short_name": "ByteSized Math",
+    "description": "This is a math game quiz",
+    "start_url": "/",
+    "display": "standalone"
 }

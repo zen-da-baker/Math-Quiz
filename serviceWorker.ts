@@ -33,15 +33,30 @@ function networkRequest( event: any ) {
 
     let cacheStorage = self.caches;
 
+    // Handle what is sent in response to the network request from the browser
     event.respondWith(
 
-        cacheStorage.open( cacheName ).then( ( cache: Cache ) => {
+        // Perform the browser default fetch request first and detect if there is a connection error
+        fetch( request ).catch( ( err: any ) => {
 
-            return cache.match( request ).catch( ( err: any ) => {
+            console.log( err );
 
-                return fetch( request );
+            // If the method of the request is GET after an error is detected, respond with the cache
+            if ( request.method === "GET" ) {
 
-            })
+                // Open the cache name and find a match with the request
+                return cacheStorage.open( cacheName ).then( ( cache: Cache ) => {
+
+                    // Return the cached response
+                    return cache.match( request ).catch( ( err: any ) => {
+
+                        console.log( err );
+
+                    })
+
+                })
+        
+            }
 
         })
 
@@ -75,5 +90,3 @@ self.addEventListener( "install", cacheAllFiles );
 self.addEventListener( "activate", addActiveListeners );
 
 self.addEventListener( "fetch", networkRequest);
-
-setTimeout( () => fetch( "https://api.bytesizedcrew.com" ).then( (response: any ) => console.log( response ) ), 3000 );
