@@ -3,5 +3,12 @@
     "short_name": "ByteSized Math",
     "description": "This is a math game quiz",
     "start_url": "/",
-    "display": "standalone"
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "icons/bytesized-orange.png",
+            "type": "image/png",
+            "sizes": "160x160"
+        }
+    ]
 }

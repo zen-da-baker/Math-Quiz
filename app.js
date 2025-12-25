@@ -5,6 +5,7 @@ const response = document.getElementById('response');
 const questionNum = document.getElementById('questionNum');
 const submit = document.getElementById('submit');
 const card = document.getElementById('card');
+const installBtn = document.getElementById("install-button");
 function inputTest() {
     if (input !== null) {
         console.log(input.value);
@@ -88,6 +89,18 @@ function capture() {
     }
 }
 submit.onclick = capture;
+let deferredEvent;
+self.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredEvent = event;
+});
+function installPWA() {
+    console.log("Installing");
+    if (deferredEvent) {
+        deferredEvent.prompt();
+    }
+}
+installBtn.onclick = installPWA;
 function main() {
     scaleDifficulty();
     console.log("Num 1: " + num1Value);
