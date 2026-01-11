@@ -133,7 +133,7 @@ function installPWA() {
 
         deferredEvent.prompt();
 
-    }
+    } 
 
 }
 
