@@ -1,0 +1,11 @@
+button {
+
+    border: 0.1rem solid black;
+
+    border-radius: 0.25rem;
+
+    padding: 0.25rem;
+
+    background-color: hsl( 150, 50%, 80% );
+
+}
