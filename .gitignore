@@ -1,6 +1,4 @@
 /build
 
-/express/node_modules
-/express/build
-
 /express-server/node_modules
+/express-server/build
