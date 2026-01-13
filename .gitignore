@@ -2,3 +2,5 @@
 
 /express-server/node_modules
 /express-server/build
+
+*.js
