@@ -14,7 +14,7 @@ import { getHomePage } from "./controllers/getHomePage.js";
 const app = express();
 
 // Assign the port number
-let port = 3007;
+let port = 3000;
 
 // Enable logging using Morgan
 app.use( morgan("dev") );
