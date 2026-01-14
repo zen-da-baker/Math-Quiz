@@ -8,7 +8,7 @@ import path from "path";
 import { fileURLToPath } from 'node:url';
 
 // Import controllers
-import { getHomePage } from "./controllers/getHomePage.js";
+import { getHomePage } from "./controllers/get-pages/getHomePage.js";
 
 // Initiate the app
 const app = express();
@@ -17,7 +17,7 @@ const app = express();
 let port = 3000;
 
 // Enable logging using Morgan
-app.use( morgan( "combined" ) );
+app.use( morgan( "dev" ) );
 
 const __filename = fileURLToPath( import.meta.url );
 const __dirname = path.dirname( __filename );
@@ -31,7 +31,7 @@ let clientJavaScriptPath = path.join(__dirname, "../build/client");
 export const visits = { landingPageVisits: 0, adminPageVisits: 0 };
 
 // Allow static files from the views and clientside JavaScript to be accessed by the user requesting a page
-app.use( express.static( viewsFilePath ) );
+app.use( express.static( viewsFilePath + "/public" ) );
 
 app.use( express.static( clientJavaScriptPath) );
 

@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-import { viewsFilePath } from "../server.js";
+import { viewsFilePath } from "../../server.js";
 
 export async function getHomePage( req: any, res: any ) {
 
