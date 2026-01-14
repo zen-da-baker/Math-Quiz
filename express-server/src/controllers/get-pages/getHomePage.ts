@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 import { viewsFilePath } from "../../server.js";
 
-export async function getHomePage( req: any, res: any ) {
+export async function getHomePage( request: any, response: any ) {
 
     let landingPageLocation = "/pages/static/landingPage.html";
 
@@ -14,10 +14,10 @@ export async function getHomePage( req: any, res: any ) {
 
         }
 
-        return res.send( data );
+        return response.send( data );
 
     }
 
-    let file = fs.readFile( viewsFilePath + landingPageLocation, { encoding: "utf-8" }, fileHandler );
+    fs.readFile( viewsFilePath + landingPageLocation, { encoding: "utf-8" }, fileHandler );
 
 }
