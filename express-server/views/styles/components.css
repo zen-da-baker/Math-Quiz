@@ -9,3 +9,15 @@ button {
     background-color: hsl( 150, 50%, 80% );
 
 }
+
+.image-container {
+
+    width: 25rem;
+
+    height: 25rem;
+
+    border-radius: 0.5rem;
+
+    border: 0.1rem solid black;
+
+}
