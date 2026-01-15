@@ -12,6 +12,7 @@ import { getHomePage } from "./controllers/get-pages/getHomePage.js";
 
 // Import router
 import { dashboardRouter } from "./controllers/dashboard-router/dashboardRouter.js";
+import { blogRouter } from "./controllers/blog-router/blogRouter.js";
 
 // Initiate the app
 const app = express();
@@ -44,6 +45,8 @@ app.use( express.json() );
 // App routes
 app.get( "/", getHomePage );
 
-app.use("/dashboard", dashboardRouter );
+app.use( "/dashboard", dashboardRouter );
+
+app.use( "/blog", blogRouter );
 
 app.listen(port, () => console.log("App listening to port " + port + "."));
