@@ -6,6 +6,8 @@ import { getDashboardHomePage } from "../get-pages/dashboard/getDashboardHomePag
 import { getAdminPage } from "../get-pages/dashboard/getAdminPage.js";
 import { getMathGamePage } from "../get-pages/dashboard/getMathGamePage.js";
 import { getSettingsPage } from "../get-pages/dashboard/getSettingsPage.js";
+import { getStorePage } from "../get-pages/dashboard/getStorePage.js";
+import { getStoryPage } from "../get-pages/dashboard/getStoryPage.js";
 
 const dashboardRouter = express.Router();
 
@@ -16,5 +18,9 @@ dashboardRouter.get( "/admin", getAdminPage );
 dashboardRouter.get( "/math-game", getMathGamePage );
 
 dashboardRouter.get( "/settings", getSettingsPage );
+
+dashboardRouter.get( "/store", getStorePage );
+
+dashboardRouter.get( "/story", getStoryPage );
 
 export { dashboardRouter };
