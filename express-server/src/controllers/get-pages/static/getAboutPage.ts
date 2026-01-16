@@ -4,7 +4,7 @@ import { viewsFilePath } from "../../../server.js";
 
 export function getAboutPage( request: any, response: any, next: any ) {
 
-    let aboutPageFilePath = "/about.html";
+    let aboutPageFilePath = "/pages/static/about.html";
 
     function handleFile( error: Error, pageContent: string ) {
 
@@ -21,5 +21,5 @@ export function getAboutPage( request: any, response: any, next: any ) {
     }
 
     fs.readFile( viewsFilePath + aboutPageFilePath, { encoding: "utf-8" }, handleFile );
-    
+
 }

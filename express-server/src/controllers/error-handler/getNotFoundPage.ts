@@ -1,5 +1,7 @@
+import { notFoundPageContents } from "../../helpers/notFoundPageContents.js";
+
 export function getNotFoundPage( request: any, response: any ) {
 
-    return response.status( 404 ).send( "<h1>Page Not Found</h1>" );
-    
+    return response.status( 404 ).send( notFoundPageContents );
+
 }
