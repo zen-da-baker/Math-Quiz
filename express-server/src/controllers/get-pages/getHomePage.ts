@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 import { viewsFilePath } from "../../server.js";
 
-import { landingPageContents } from "../../helpers/landingPageContents.js";
+import { landingPageContents } from "../../helpers/page-contents/landingPageContents.js";
 
 export async function getHomePage( request: any, response: any ) {
 
