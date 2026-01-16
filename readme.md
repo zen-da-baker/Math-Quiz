@@ -10,7 +10,7 @@ Vanilla web technologies were used to create this fullstack web application
 ## Features
 This web application utilizes
 ## Speed Optimizations
-Originally the web application read a file from its storage location on every request which took about 5ms on my development laptop. I pursued a different approach early on to read the file contents of an HTML page once when the web application on the server is booting and saving the contents to memory as a variable. I then sent the contents from memory to the user which cut the response time down to 0.5ms on the server side. This had a 10x speed improvement on response times. 
+Originally the web application read a file from its storage location on every request which took about 5ms on my development laptop. I pursued a different approach early on to read the file contents of an HTML page once when the web application on the server is booting and saving the contents to memory as a variable. I then sent the contents from memory to the user which cut the response time down to 0.5ms on the server side on average with rare responses as high as 1.5ms and as low as 0.08ms. This had a 10x speed improvement on response times. 
 
 ## Purpose
 This is a simple math quiz game where the more answers the user answers correctly, the more difficult the math problems become. This is also a simple test of an offline available PWA.

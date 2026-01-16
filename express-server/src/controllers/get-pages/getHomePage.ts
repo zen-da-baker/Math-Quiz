@@ -2,7 +2,11 @@ import fs from "node:fs";
 
 import { viewsFilePath } from "../../server.js";
 
+import { landingPageContents } from "../../helpers/landingPageContents.js";
+
 export async function getHomePage( request: any, response: any ) {
+
+    return response.send( landingPageContents );
 
     let landingPageLocation = "/pages/static/landingPage.html";
 
