@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { getHomePage } from "./controllers/get-pages/getHomePage.js";
 import { getAboutPage } from "./controllers/get-pages/static/getAboutPage.js";
 import { getErrorPage } from "./controllers/error-handler/getErrorPage.js";
+import { getNotFoundPage } from "./controllers/error-handler/getNotFoundPage.js";
 
 // Import router
 import { dashboardRouter } from "./controllers/dashboard-router/dashboardRouter.js";
@@ -57,6 +58,7 @@ app.use( "/dashboard", dashboardRouter );
 app.use( "/blog", blogRouter );
 
 // Error handler
+app.use( getNotFoundPage );
 app.use( getErrorPage );
 
 app.listen(port, () => console.log("App listening to port " + port + "."));
