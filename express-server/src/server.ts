@@ -9,6 +9,8 @@ import { fileURLToPath } from 'node:url';
 
 // Import controllers
 import { getHomePage } from "./controllers/get-pages/getHomePage.js";
+import { getAboutPage } from "./controllers/get-pages/static/getAboutPage.js";
+import { getErrorPage } from "./controllers/error-handler/getErrorPage.js";
 
 // Import router
 import { dashboardRouter } from "./controllers/dashboard-router/dashboardRouter.js";
@@ -43,10 +45,18 @@ app.use( express.static( clientJavaScriptPath) );
 app.use( express.json() );
 
 // App routes
+// Static pages
 app.get( "/", getHomePage );
 
+app.get( "/about", getAboutPage );
+
+// The dashboard routes
 app.use( "/dashboard", dashboardRouter );
 
+// The blog routes
 app.use( "/blog", blogRouter );
+
+// Error handler
+app.use( getErrorPage );
 
 app.listen(port, () => console.log("App listening to port " + port + "."));
