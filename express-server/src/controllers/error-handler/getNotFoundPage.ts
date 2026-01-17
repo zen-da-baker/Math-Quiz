@@ -1,4 +1,4 @@
-import { notFoundPageContents } from "../../helpers/notFoundPageContents.js";
+import { notFoundPageContents } from "../../helpers/page-contents/notFoundPageContents.js";
 
 export function getNotFoundPage( request: any, response: any ) {
 

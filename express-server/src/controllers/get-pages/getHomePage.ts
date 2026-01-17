@@ -1,27 +1,9 @@
-import fs from "node:fs";
-
-import { viewsFilePath } from "../../server.js";
-
-import { landingPageContents } from "../../helpers/page-contents/landingPageContents.js";
+// Import the page contents from the global scope
+import { landingPageContent } from "../../helpers/page-contents/landingPageContents.js";
 
 export async function getHomePage( request: any, response: any ) {
 
-    return response.send( landingPageContents );
-
-    let landingPageLocation = "/pages/static/landingPage.html";
-
-    function fileHandler( error: any, data: string ) {
-
-        if ( error ) {
-
-            console.log( error );
-
-        }
-
-        return response.send( data );
-
-    }
-
-    fs.readFile( viewsFilePath + landingPageLocation, { encoding: "utf-8" }, fileHandler );
+    // Send the page contents string to the requesting user
+    return response.send( landingPageContent );    
 
 }

@@ -10,9 +10,11 @@ let notFoundPageContents = "";
 
 try {
 
-    let relativePath = path.join( import.meta.url, notFoundPagePath );
+    let relativeURL = path.join( import.meta.url, notFoundPagePath );
 
-    notFoundPageContents = await readFile( fileURLToPath( relativePath ), "utf-8" );
+    let relativePath = fileURLToPath( relativeURL );
+
+    notFoundPageContents = await readFile( relativePath, "utf-8" );
 
 } catch( error: any ) {
 

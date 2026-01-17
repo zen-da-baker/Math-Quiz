@@ -1,25 +1,11 @@
-import { readFile } from "fs/promises";
+// Import the page content helper function to get the page content for this page
+import { getPageContentHelper } from "../get-page-content/getPageContentHelper.js";
 
-import { fileURLToPath } from "url";
+// The relative path to the intended file
+let landingPagePath = "../../../../views/pages/static/landingPage.html";
 
-import path from "path";
+// The page content is stored as a global variable after the file reading resolves
+let landingPageContent = await getPageContentHelper( landingPagePath );
 
-let landingPagePath = "../../../views/pages/static/landingPage.html";
-
-let landingPageContents = "";
-
-try {
-
-    let relativeURL = path.join( import.meta.url, landingPagePath );
-
-    let relativePath = fileURLToPath( relativeURL );
-
-    landingPageContents = await readFile( relativePath, "utf-8" );
-
-} catch( error: any ) {
-
-    console.log( error );
-
-}
-
-export { landingPageContents };
+// Export the page content of the initial landing page
+export { landingPageContent };
