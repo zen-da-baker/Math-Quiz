@@ -1,5 +1,5 @@
 // Import admin page content
-import { adminPageContent } from "../../../helpers/page-contents/adminPageContents.js";
+import { adminPageContent } from "../../../helpers/page-contents/pageContents.js";
 
 export async function getAdminPage( request: any, response: any, next: any ) {
 
