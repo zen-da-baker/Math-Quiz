@@ -1,25 +1,8 @@
-import fs from "node:fs";
-
-import { viewsFilePath } from "../../../server.js";
+// Import page content
+import { aboutPageContent } from "../../../helpers/page-contents/aboutPageContents.js";
 
 export function getAboutPage( request: any, response: any, next: any ) {
 
-    let aboutPageFilePath = "/pages/static/about.html";
-
-    function handleFile( error: Error, pageContent: string ) {
-
-        if ( error ) {
-
-            console.log( error );
-
-            return next( error );
-
-        }
-
-        return response.send( pageContent );
-
-    }
-
-    fs.readFile( viewsFilePath + aboutPageFilePath, { encoding: "utf-8" }, handleFile );
+    return response.send( aboutPageContent );
 
 }
