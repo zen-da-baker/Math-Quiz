@@ -1,23 +1,16 @@
-import fs from "node:fs";
+// Import math game page content
+import { mathGamePageContent } from "../../../helpers/page-contents/pageContents.js";
 
-import { viewsFilePath } from "../../../server.js";
+export function getMathGamePage( request: any, response: any, next: any ) {
 
-export function getMathGamePage( request: any, response: any ) {
+    if ( mathGamePageContent === "" ) {
 
-    let gameFilePath = "/pages/dashboard/mathGame.html";
+        let pageError = new Error("Page not found");
 
-    function handleFile( error: any, data: string ) {
-
-        if ( error ) {
-
-            console.log( error );
-
-        }
-
-        return response.send( data );
+        return next( pageError );
 
     }
 
-    fs.readFile( viewsFilePath + gameFilePath, { encoding: "utf-8" }, handleFile );
+    return response.send( mathGamePageContent );
 
 }

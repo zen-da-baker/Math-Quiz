@@ -1,25 +1,16 @@
-import fs from "node:fs";
-
-import { viewsFilePath } from "../../../server.js";
+// Import store page content
+import { storePageContent } from "../../../helpers/page-contents/pageContents.js";
 
 export function getStorePage( request: any, response: any, next: any ) {
 
-    let storeFilePath = "/pages/dashboard/store.html";
+    if ( storePageContent === "" ) {
 
-    function handleFile( error: Error, data: string ) {
+        let pageError = new Error("Page not found");
 
-        if ( error ) {
-
-            console.log( error );
-
-            return next( error );
-
-        }
-
-        return response.send( data );
+        return next( pageError );
 
     }
 
-    fs.readFile( viewsFilePath + storeFilePath, { encoding: "utf-8" }, handleFile );
+    return response.send( storePageContent );
 
 }

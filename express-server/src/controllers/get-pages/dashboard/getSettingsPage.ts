@@ -1,25 +1,18 @@
-import fs from "node:fs";
-
-import { viewsFilePath } from "../../../server.js";
+// Import settings page content
+import { settingsPageContent } from "../../../helpers/page-contents/pageContents.js";
 
 export function getSettingsPage( request: any, response: any, next: any ) {
 
-    let settingsFilePath = "/pages/dashboard/settings.html";
+    if ( settingsPageContent === "" ) {
 
-    function handleFile( error: Error, data: string) {
+        let pageError = new Error("Page not found");
 
-        if ( error ) {
+        console.log( pageError );
 
-            console.log( error );
-
-            return next( error );
-
-        }
-
-        return response.send( data );
+        return next( pageError );
 
     }
 
-    fs.readFile( viewsFilePath + settingsFilePath, { encoding: "utf-8" }, handleFile );
+    return response.send( settingsPageContent );
 
 }

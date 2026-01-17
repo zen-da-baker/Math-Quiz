@@ -1,25 +1,16 @@
-import fs from "node:fs";
-
-import { viewsFilePath } from "../../../../server.js";
+// Import blog home page content
+import { blogHomePageContent } from "../../../../helpers/page-contents/pageContents.js";
 
 export function getBlogHomePage( request: any, response: any, next: any ) {
 
-    let blogHomePageFilePath = "/pages/static/blog/blogHome.html";
+    if ( blogHomePageContent === "" ) {
 
-    function handleFunction( error: Error, pageContent: string ) {
+        let pageError = new Error("Page not found");
 
-        if ( error ) {
-
-            console.log( error );
-
-            return next( error );
-
-        }
-
-        return response.send( pageContent );
+        return next( pageError );
 
     }
 
-    fs.readFile( viewsFilePath + blogHomePageFilePath, { encoding: "utf-8" }, handleFunction );
+    return response.send( blogHomePageContent );
 
 }

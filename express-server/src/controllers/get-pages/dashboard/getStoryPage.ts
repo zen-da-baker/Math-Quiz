@@ -1,25 +1,16 @@
-import fs from "node:fs";
-
-import { viewsFilePath } from "../../../server.js";
+// Import story page content
+import { storyPageContent } from "../../../helpers/page-contents/pageContents.js";
 
 export function getStoryPage( request: any, response: any, next: any ) {
 
-    let storyFilePath = "/pages/dashboard/story.html";
+    if ( storyPageContent === "" ) {
 
-    function handleFile( error: Error, pageContents: string ) {
+        let pageError = new Error("Page not found");
 
-        if ( error ) {
-
-            console.log( error );
-
-            return next( error );
-
-        }
-
-        return response.send( pageContents );
+        next( pageError );
 
     }
 
-    fs.readFile( viewsFilePath + storyFilePath, { encoding: "utf-8" }, handleFile );
+    return response.send( storyPageContent );
 
 }

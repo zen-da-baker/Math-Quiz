@@ -1,3 +1,4 @@
+// Import leaderboard page content
 import { leaderboardPageContent } from "../../../helpers/page-contents/pageContents.js";
 
 export function getLeaderboardPage( request: any, response: any, next: any ) {
