@@ -2,6 +2,10 @@ import { getPageContentHelper } from "../get-page-content/getPageContentHelper.j
 
 let adminPagePath = "../../../../views/pages/dashboard/admin.html";
 
+let dashboardHomePagePath = "../../../../views/pages/dashboard/dashboardHome.html";
+
 let adminPageContent = await getPageContentHelper( adminPagePath );
 
-export { adminPageContent }
+let dashboardHomePageContent = await getPageContentHelper( dashboardHomePagePath );
+
+export { adminPageContent, dashboardHomePageContent };
