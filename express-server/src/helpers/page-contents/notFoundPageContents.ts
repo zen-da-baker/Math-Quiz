@@ -1,26 +1,11 @@
-import { readFile } from "fs/promises";
+// Import page content helper function
+import { getPageContentHelper } from "../get-page-content/getPageContentHelper.js";
 
-import { fileURLToPath } from "url";
+// The relative path for the page content 
+let notFoundPagePath = "../../../../views/pages/static/error-pages/notFound.html";
 
-import path from "path";
-
-let notFoundPagePath = "../../../views/pages/static/error-pages/notFound.html";
-
-let notFoundPageContents = "";
-
-try {
-
-    let relativeURL = path.join( import.meta.url, notFoundPagePath );
-
-    let relativePath = fileURLToPath( relativeURL );
-
-    notFoundPageContents = await readFile( relativePath, "utf-8" );
-
-} catch( error: any ) {
-
-    console.log( error );
-
-}
+// The content of the page to be displayed when no other page is found
+let notFoundPageContents = await getPageContentHelper( notFoundPagePath );
 
 // This is the string contents of the not found page, read once instead of every time
 export { notFoundPageContents };

@@ -1,23 +1,16 @@
-import fs from "node:fs";
+// Import admin page content
+import { adminPageContent } from "../../../helpers/page-contents/adminPageContents.js";
 
-import { viewsFilePath } from "../../../server.js";
+export async function getAdminPage( request: any, response: any, next: any ) {
 
-export async function getAdminPage( request: any, response: any ) {
+    if ( adminPageContent === "" ) {
 
-    let adminPageFilePath = "/pages/dashboard/admin.html";
+        let pageError = new Error("Page not found");
 
-    function fileHandler( error: any, data: string ) {
-
-        if ( error ) {
-
-            console.log( error );
-
-        }
-
-        return response.send( data );
+        return next( pageError );
 
     }
 
-    fs.readFile( viewsFilePath + adminPageFilePath, { encoding: "utf-8" }, fileHandler);
+    return response.send( adminPageContent );
 
 }
