@@ -11,6 +11,7 @@ let dashboardDirectoryPath = pagesDirectoryPath + "dashboard/";
 let staticDirectoryPath = pagesDirectoryPath + "static/";
 let blogDirectoryPath = staticDirectoryPath + "blog/";
 let errorDirectoryPath = staticDirectoryPath + "error-pages/";
+let lessonsDirectoryPath = staticDirectoryPath + "lessons/";
 
 // Relative page paths
 // Static pages
@@ -35,6 +36,9 @@ let storyPagePath = dashboardDirectoryPath + "story.html";
 
 // Blog pages
 let blogHomePagePath = blogDirectoryPath + "blogHome.html";
+
+// Lessons pages
+let lessonsHomePagePath = lessonsDirectoryPath + "lessonsHome.html";
 
 // Error pages
 let notFoundPagePath = errorDirectoryPath + "notFound.html";
@@ -65,14 +69,21 @@ let storyPageContent = await getPageContentHelper( storyPagePath );
 // Blog pages
 let blogHomePageContent = await getPageContentHelper( blogHomePagePath );
 
+// Lessons pages
+let lessonsHomePageContent = await getPageContentHelper( lessonsHomePagePath );
+
 // Error pages
 let notFoundPageContent = await getPageContentHelper( notFoundPagePath );
 
 let serverErrorPageContent = await getPageContentHelper( serverErrorPagePath );
 
+// Export all of the content files
 export { 
+    // Static pages
     aboutPageContent, 
     landingPageContent, 
+
+    // Dashboard pages
     adminPageContent, 
     dashboardHomePageContent, 
     leaderboardPageContent,
@@ -80,7 +91,14 @@ export {
     settingsPageContent,
     storePageContent,
     storyPageContent,
+
+    // Blog pages
     blogHomePageContent,
+
+    // Lessons pages
+    lessonsHomePageContent,
+
+    // Error pages
     notFoundPageContent,
     serverErrorPageContent
 };

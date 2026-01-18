@@ -14,8 +14,9 @@ import { getErrorPage } from "./controllers/error-handler/getErrorPage.js";
 import { getNotFoundPage } from "./controllers/error-handler/getNotFoundPage.js";
 
 // Import router
-import { dashboardRouter } from "./controllers/dashboard-router/dashboardRouter.js";
-import { blogRouter } from "./controllers/blog-router/blogRouter.js";
+import { dashboardRouter } from "./controllers/routers/dashboard-router/dashboardRouter.js";
+import { blogRouter } from "./controllers/routers/blog-router/blogRouter.js";
+import { lessonsRouter } from "./controllers/routers/lessons-router/lessonsRouter.js";
 
 // Initiate the app
 const app = express();
@@ -56,6 +57,9 @@ app.use( "/dashboard", dashboardRouter );
 
 // The blog routes
 app.use( "/blog", blogRouter );
+
+// The lessons routes
+app.use( "/lessons", lessonsRouter );
 
 // Error handler
 app.use( getNotFoundPage );
